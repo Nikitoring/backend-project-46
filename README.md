@@ -4,4 +4,4 @@
 
 ### Asciiemas
 
-[![Compare JSON files](https://asciinema.org/connect/6344f008-63e7-4b04-87ff-7c7fcac30cc9)]
+[![Compare JSON files](https://asciinema.org/connect/6344f008-63e7-4b04-87ff-7c7fcac30cc9.svg)(https://asciinema.org/connect/6344f008-63e7-4b04-87ff-7c7fcac30cc9)]
