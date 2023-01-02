@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { getDiff } from '../src/diffFiles.js';
+import getDiff from '../index.js';
 
 const program = new Command();
 

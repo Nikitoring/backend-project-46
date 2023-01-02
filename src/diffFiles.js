@@ -16,7 +16,7 @@ const cloneAndSortJsonToObject = (obj) => {
   return result;
 };
 
-const getDiff = (file1, file2) => {
+export default (file1, file2) => {
   const extName1 = path.extname(file1);
   const extName2 = path.extname(file2);
   if (extName1 !== extName2 || extName2 !== '.json' || extName1 !== '.json') {
@@ -50,5 +50,3 @@ const getDiff = (file1, file2) => {
   strResult += '\n}';
   return strResult;
 };
-
-export { getDiff };
