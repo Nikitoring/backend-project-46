@@ -28,4 +28,4 @@ rules:
         "allowIndentationTabs": true
       }
     ]
-  trailingComma: "none"
+  comma-dangle: ["error", "never"]
