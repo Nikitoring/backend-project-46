@@ -2,7 +2,10 @@ import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
 
-const loadJSON = (paths) => JSON.parse(fs.readFileSync(new URL(path.resolve(process.cwd(), paths), import.meta.url)));
+const loadJSON = (paths) => {
+  const file = fs.readFileSync(new URL(path.resolve(process.cwd(), paths), import.meta.url));
+  return JSON.parse(file);
+};
 
 const cloneAndSortJsonToObject = (obj) => {
   const result = {};
@@ -17,16 +20,11 @@ const cloneAndSortJsonToObject = (obj) => {
 };
 
 export default (file1, file2) => {
-  const extName1 = path.extname(file1);
-  const extName2 = path.extname(file2);
-  if (extName1 !== extName2 || extName2 !== '.json' || extName1 !== '.json') {
-    throw new Error('only json files');
-  }
   const cloneFile1 = cloneAndSortJsonToObject(file1);
   const cloneFile2 = cloneAndSortJsonToObject(file2);
   const result = {};
-  for (const [key, value] of Object.entries(cloneFile1)) {
-    if (cloneFile2.hasOwnProperty(key)) {
+  Object.entries(cloneFile1).forEach(([key, value]) => {
+    if (Object.hasOwn(cloneFile2, key)) {
       if (value === cloneFile2[key]) {
         result[key] = value;
       }
@@ -37,15 +35,15 @@ export default (file1, file2) => {
     } else {
       result[`- ${key}`] = value;
     }
-  }
-  for (const [key, value] of Object.entries(cloneFile2)) {
-    if (!result.hasOwnProperty(key)) {
+  });
+  Object.entries(cloneFile2).forEach(([key, value]) => {
+    if (!Object.hasOwn(result, key)) {
       result[`+ ${key}`] = value;
     }
-  }
+  });
   let strResult = '{';
   Object.entries(result).forEach(([key, value]) => {
-    strResult += `\n   ${key}: ${value}`;
+    strResult += `\n  ${key}: ${value}`;
   });
   strResult += '\n}';
   return strResult;

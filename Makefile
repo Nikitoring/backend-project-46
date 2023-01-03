@@ -6,5 +6,11 @@ install-deps:
 run:
 	node bin/gendiff.js
 
+test:
+	npm test
+
 lint:
 	npx eslint .
+
+lint-fix:
+	npx eslint --fix .
