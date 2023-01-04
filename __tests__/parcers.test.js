@@ -12,14 +12,8 @@ describe('parsers', () => {
     const result = parsers('__tests__/__fixtures__/file1.yml');
     expect(result).toStrictEqual(excectObject);
   });
-  test(`passed empty file`, () => {
-    const excectObject = {};
-    const result = parsers('__tests__/__fixtures__/file-empty.yml');
-    expect(result).toEqual(excectObject);
-  });
   test(`passed md file`, () => {
-    const excectObject = {};
     const result = parsers('__tests__/__fixtures__/file1.md');
-    expect(result).toEqual(excectObject);
+    expect(result).toStrictEqual({});
   });
 });

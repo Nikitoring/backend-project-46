@@ -10,13 +10,11 @@ const loadJSON = (paths) => {
 
 const sortObject = (obj) => {
   const result = {};
-  if (obj && Object.keys(obj).length) {
-    Object.keys(obj)
-      .sort()
-      .forEach((key) => {
-        result[key] = obj[key];
-      });
-  }
+  Object.keys(obj)
+    .sort()
+    .forEach((key) => {
+      result[key] = obj[key];
+    });
   return result;
 };
 
