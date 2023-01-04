@@ -8,4 +8,8 @@
 
 ### Asciiemas
 
+Compare JSON files
 [![Compare JSON files](https://asciinema.org/a/U4wiOBsSDMfxbbbNhSkOuQReO.svg)](https://asciinema.org/a/U4wiOBsSDMfxbbbNhSkOuQReO)
+
+Compare YAML files
+[![Compare YAML files](https://asciinema.org/a/pcqSejtYEQxNvMbDHvael7xcN.svg)](https://asciinema.org/a/pcqSejtYEQxNvMbDHvael7xcN)

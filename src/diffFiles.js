@@ -1,27 +1,8 @@
-import _ from 'lodash';
-import fs from 'fs';
-import path from 'path';
-
-const loadJSON = (paths) => {
-  const file = fs.readFileSync(new URL(path.resolve(process.cwd(), paths), import.meta.url));
-  return JSON.parse(file);
-};
-
-const cloneAndSortJsonToObject = (obj) => {
-  const result = {};
-  const loadJsonObj = loadJSON(obj);
-  const clone = _.cloneDeep(loadJsonObj);
-  Object.keys(clone)
-    .sort()
-    .forEach((key) => {
-      result[key] = loadJsonObj[key];
-    });
-  return result;
-};
+import parsers from './parsers.js';
 
 export default (file1, file2) => {
-  const cloneFile1 = cloneAndSortJsonToObject(file1);
-  const cloneFile2 = cloneAndSortJsonToObject(file2);
+  const cloneFile1 = parsers(file1);
+  const cloneFile2 = parsers(file2);
   const result = {};
   Object.entries(cloneFile1).forEach(([key, value]) => {
     if (Object.hasOwn(cloneFile2, key)) {
